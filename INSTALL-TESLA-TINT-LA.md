@@ -8,7 +8,9 @@ You are editing **teslatintla/** on github.com/audiomotorsports-sketch/audiomoto
 
 This site canonicalises to the **bare host** — `https://teslatintla.com` — **no www**. Every other desk uses www. Do **not** “fix” that.
 
-index.html is ~44,742 bytes. Trust the measured anchors in this file.
+index.html is ~44,736 bytes. Trust the measured anchors in this file.
+
+**This is a Los Angeles site.** Write for a driver in LA, Long Beach, or OC. Nobody travels for tint. Do not aim copy at California-as-a-state, Nevada, or anywhere out of metro. Tesla itself sells Model Y tint from the factory — this desk wins on the bay in Carson, not on statewide coverage.
 
 ## This site is WHITE
 
@@ -35,7 +37,7 @@ Plugin CSS uses `var(--bg, #ffffff)` / `var(--text, #171a20)`. **Do not hardcode
 1. Insert the quote plugin **immediately under the existing banner**.
 2. **MOVE** `<section class="offer-cards" id="offers">` to the **bottom** — after the last content section (`section-shop` / `#drive-in`), before the footer. Not deleted. Contents unedited. Keep `id="offers"`.
 3. Leave the simulator (`#tesla-sim`, `sim-modelrow`, `sim-picker`, `sim-panel`) **untouched**.
-4. Add `/privacy/` and `/terms/` and wire them through the chrome generator.
+4. **Do not** create or edit `/privacy/` or `/terms/`. They exist, they are linked on all 128 pages, they are in the sitemap. Skip.
 
 Required homepage order:
 
@@ -67,7 +69,7 @@ The 3 cards (do not edit): SOLAR CERAMIC · Y FRONTS / SOLAR CERAMIC · MODEL 3 
 
 ## Insert — DEPTH COUNT. Not a literal next-sibling string.
 
-Matching `</section>\n<section class="offer-cards"` broke the tint install.
+Matching `</section>\n<section class="offer-cards"` broke the lacartint install.
 
 1. Find `<section class="hero-banner">` in `teslatintla/index.html`.
 2. Walk forward counting `<section` (+1) and `</section>` (−1) until depth returns to 0.
@@ -83,7 +85,7 @@ Paste it **after** `<section class="section section-shop" id="drive-in">` closes
 
 Do not edit card contents. Keep `id="offers"`. Carry `offer-cards.css` — already in `<head>`.
 
-## Plugin — Tesla only. No prices.
+## Plugin — Tesla only. No prices. Metro copy.
 
 Proof bar, separate cells, never merge Google + Yelp:
 
@@ -96,6 +98,8 @@ Model 3 · Model Y · Model Y L · Model S · Model X · Cybertruck
 Film chips: Solar Ceramic · 3M IR Ceramic
 
 Do **not** offer generic make/model. This desk is Tesla-only.
+
+Lead copy is already metro: “LA, Long Beach, OC. Drive to Carson.” Do not expand it to statewide.
 
 Text us / Call with year + model + film prefilled into SMS. Ask for Nick. Zack runs the floor.
 
@@ -137,41 +141,17 @@ No struck-through “was” prices.
 - Introduce dark-theme colours or hardcode `#0a0a0a`
 - Use warranty / guaranteed / lifetime / financing
 - Invent reviews or reviewer names
-- Write new legal-tint copy. California: front side windows must pass 70% VLT combined glass+film, film itself >=88% VLT, full windshield film is not legal. Reuse the site’s existing Legal & Compliance wording **verbatim** if you need any.
-- Send anyone to lacartint.com for Tesla work (or vice versa) without checking existing cross-links
+- Write new legal-tint copy. Reuse the site’s existing Legal & Compliance wording **verbatim** if you need any
+- Write copy targeting other states or a multi-state service area
+- **Touch `/privacy/` or `/terms/`** — they exist and are done
 - Add `www.` to teslatintla.com
 - **Touch `/tesla-tint-carson/`** — see P2
 
 ## SEO / legal — same pass
 
-### P1 — no privacy, no terms (must ship)
+### P1 — privacy + terms. SKIP.
 
-`/privacy/`, `/terms/`, `/privacy-policy/`, `/terms-of-service/`, `/legal/` — **none exist**. Every page has a lead path and GTM, so CalOPPA applies.
-
-Create:
-
-- `teslatintla/privacy/index.html`
-- `teslatintla/terms/index.html`
-
-Clone the inner shell from `teslatintla/payment-plan/index.html` (hero/chrome/footer). Replace the main copy with **privacy.html** and **terms.html** from this pack. Unique `<title>` + meta description + canonical:
-
-- `https://teslatintla.com/privacy/`
-- `https://teslatintla.com/terms/`
-
-No www. Cover all six CalOPPA points in privacy.html (already written). Do **not** claim CCPA coverage. Do Not Track: we do not respond. GTM/Analytics may collect across sites. Requests honoured voluntarily.
-
-Footer — two lines, not 127 files:
-
-```
-scripts/lib/network-chrome.mjs  →  SITES.tesla.footerPages
-  privacy: '/privacy/',
-  terms: '/terms/',
-then: node scripts/apply-network-chrome.mjs
-```
-
-`footerGridHtml` already supports `pages.privacy` / `pages.terms`. Expect **tesla patched, all five other sites reporting 0**. If a spoke changes, stop.
-
-Add both URLs to `teslatintla/sitemap.xml` (126 → 128).
+`/privacy/` and `/terms/` now exist, are linked from all 128 pages via the footer generator, and are in `sitemap.xml` (126 → 128). **Do not create, edit, or duplicate them.**
 
 ### P2 — THE CARSON PAGE. FLAG ONLY. DO NOT TOUCH IT.
 
@@ -192,14 +172,17 @@ Only ~2 files carry “never call it anything else”.
 
 **111 files** carry review-attribution copy (“borrowed from Los Angeles”, ` · borrowed` bylines from `quoteCard()` in `teslatintla/scripts/build-city-pages.mjs`).
 
-Owner call: reword or leave. **Do not mass-edit 111 pages this pass.** If you see “never call it anything else” on the two files, fix **both** visible FAQ and JSON-LD identically, same swap as hub:
+Owner call: reword or leave. **Do not mass-edit 111 pages this pass.** If you see “never call it anything else” on the two files, fix **both** visible FAQ and JSON-LD identically:
 
 - Payment Plan line → `We quote the work first. If a Payment Plan is the right fit, you can apply at the counter.`
 - schema aggregate line → `Google shows 4.8 from 654 reviews for the shop overall, not for this page alone.`
 
-### P4 — orphaned city pages. FLAG.
+### P4 — orphaned city pages. Do Orange only.
 
-`/tesla-tint-carson/` and `/tesla-tint-orange/` have effectively zero inbound internal links. Orange is content-correct — linking it is safe. Carson is blocked by P2. **Do not link Carson. Flag Orange** (or add Orange only to `neighbors` if that is a one-line change you can show in the PR). Prefer flag if unsure.
+`/tesla-tint-carson/` and `/tesla-tint-orange/` have effectively zero inbound internal links. `onGrid: false` keeps them off `/locations/`.
+
+- **Orange** is content-correct and just unlinked. Linking it is safe and worth doing: add **one** inbound link to `/tesla-tint-orange/` from `teslatintla/locations/` (or set Orange `onGrid: true` in `city-flavor.mjs` **only if** that does not rebuild 111 pages). Do not invent Orange copy.
+- **Carson** is blocked by P2. Do not link it.
 
 ### P5 — 11 city pages on old .png banners. FLAG if it blows the diff.
 
@@ -219,10 +202,12 @@ anaheim, carson, gardena, hermosa-beach, long-beach, los-angeles, orange, rancho
 - Simulator still works (model → shade → price, no console errors)
 - Plugin reads on WHITE. `grep -n "#0a0a0a" teslatintla/assets/css/ams-plugin-tesla.css` → 0
 - Plugin has zero `$` amounts
-- `/privacy/` and `/terms/` exist, linked in the footer on tesla pages, in sitemap.xml (128 URLs)
+- Plugin copy stays metro (LA / Long Beach / OC / Carson). No statewide pitch
+- `/privacy/` and `/terms/` **untouched** and still linked from all 128 pages
 - chat, `.mobile-cta-bar`, GTM intact
 - Sticky hidden above 1024px
 - **Carson page UNTOUCHED, guards UNTOUCHED, raised in the PR**
+- Orange has at least one inbound internal link **or** is flagged with a reason
 - No `www.teslatintla.com` invented
 - No developer comment above the plugin in view-source
 - Visible FAQ and FAQPage JSON-LD still match if you touched them
@@ -235,11 +220,10 @@ curl -s https://teslatintla.com/ | grep -c 'id="ams-plug-tesla"'
 curl -s https://teslatintla.com/ | grep -n 'offer-cards\|ams-plug-tesla\|sim-modelrow\|section-shop'
 curl -sI https://teslatintla.com/privacy/ -o /dev/null -w '%{http_code}\n'
 curl -sI https://teslatintla.com/terms/ -o /dev/null -w '%{http_code}\n'
-curl -s https://teslatintla.com/sitemap.xml | grep -c '<url>'
-curl -s https://teslatintla.com/ | grep -c '\$'
+curl -s https://teslatintla.com/ | grep -c 'id="ams-plug-tesla"'
 curl -sI https://www.teslatintla.com/ -o /dev/null -w '%{http_code} %{redirect_url}\n'
 ```
 
-Expect: plugin 1, plugin before simulator, offer-cards after section-shop, privacy 200, terms 200, sitemap 128, no new `$` in the plugin markup, www still redirects to bare host (do not invert that).
+Expect: plugin 1, plugin before simulator, offer-cards after section-shop, privacy 200, terms 200 (untouched), www still redirects to bare host (do not invert that).
 
 Screenshot **phone** before production merge to branch `v1`.
