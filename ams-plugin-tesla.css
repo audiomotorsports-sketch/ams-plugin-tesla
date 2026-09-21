@@ -1,0 +1,197 @@
+/* Tesla Tint LA plugin — LIGHT desk. Near-black #171a20. No gold. No glow. */
+
+.ams-plug {
+  background: var(--bg, #ffffff);
+  color: var(--text, #171a20);
+  font-family: var(--font-body, Inter, system-ui, sans-serif);
+}
+.ams-plug * { box-sizing: border-box; }
+
+.ams-plug-proof {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: 1px solid var(--hairline, #e8e8e8);
+  border-bottom: 1px solid var(--hairline, #e8e8e8);
+  background: var(--surface, #f4f4f4);
+}
+.ams-plug-proof div { padding: 16px 18px; }
+.ams-plug-proof span {
+  display: block;
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--muted, #5c5e62);
+}
+.ams-plug-proof strong {
+  display: block;
+  margin-top: 4px;
+  font-family: var(--font-head, Outfit, sans-serif);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text, #171a20);
+}
+
+.ams-plug-quote { padding: 44px 0 36px; background: var(--bg, #ffffff); }
+.ams-plug .container {
+  max-width: var(--container, 1160px);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.ams-plug .eyebrow,
+.ams-plug .chip-label {
+  display: inline-block;
+  margin-bottom: 12px;
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--muted, #5c5e62);
+}
+.ams-plug .chip-label { display: block; margin: 18px 0 8px; }
+.ams-plug h2 {
+  margin: 0 0 12px;
+  font-family: var(--font-head, Outfit, sans-serif);
+  font-size: clamp(1.8rem, 4.2vw, 2.7rem);
+  font-weight: 600;
+  letter-spacing: -.03em;
+  line-height: 1.1;
+  color: var(--text, #171a20);
+}
+.ams-plug h2 em { font-style: normal; color: var(--muted, #5c5e62); }
+.ams-plug .lead { max-width: 34rem; margin: 0 0 26px; color: var(--muted, #5c5e62); }
+
+.ams-plug-year { max-width: 12rem; margin-bottom: 8px; }
+.ams-plug-year input {
+  height: 48px;
+  width: 100%;
+  padding: 0 14px;
+  border: 1px solid var(--border, rgba(23, 26, 32, 0.12));
+  border-radius: var(--radius-btn, 4px);
+  background: var(--bg, #ffffff);
+  color: var(--text, #171a20);
+  font: inherit;
+}
+.ams-plug-year input:focus { outline: 2px solid var(--cta, #171a20); outline-offset: 0; }
+
+.ams-plug-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+  border: 1px solid var(--hairline, #e8e8e8);
+  border-radius: var(--radius-btn, 4px);
+}
+.ams-plug-tabs button {
+  height: 44px;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: var(--surface, #f4f4f4);
+  color: var(--muted, #5c5e62);
+  font-size: .78rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.ams-plug-tabs button.is-on {
+  border-bottom-color: var(--cta, #171a20);
+  background: var(--cta, #171a20);
+  color: var(--cta-text, #ffffff);
+}
+
+.ams-plug-actions { display: grid; gap: 10px; margin-top: 22px; }
+.ams-plug-actions a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 52px;
+  border-radius: var(--radius-btn, 4px);
+  font-family: var(--font-head, Outfit, sans-serif);
+  font-size: .95rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+.ams-plug-actions .is-text { background: var(--cta, #171a20); color: var(--cta-text, #ffffff); }
+.ams-plug-actions .is-call { border: 1px solid var(--cta, #171a20); color: var(--cta, #171a20); background: var(--bg, #ffffff); }
+.ams-plug .fine { margin: 14px 0 0; font-size: .85rem; color: var(--muted, #5c5e62); }
+.ams-plug .fine a { color: var(--text, #171a20); text-decoration: underline; }
+
+.ams-plug-jobs { padding: 36px 0 56px; background: var(--bg, #ffffff); }
+.ams-plug-jobs h3 {
+  margin: 0;
+  font-family: var(--font-head, Outfit, sans-serif);
+  font-size: 1.45rem;
+  font-weight: 600;
+}
+.ams-plug-cards { display: grid; gap: 12px; margin-top: 22px; }
+.ams-plug-card {
+  overflow: hidden;
+  border: 1px solid var(--hairline, #e8e8e8);
+  border-radius: var(--radius-card, 8px);
+  background: var(--surface, #f4f4f4);
+  color: inherit;
+  text-align: left;
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
+}
+.ams-plug-card.is-on { border-color: var(--cta, #171a20); }
+.ams-plug-card img {
+  width: 100%;
+  height: 148px;
+  object-fit: contain;
+  background: var(--bg, #ffffff);
+  padding: 10px;
+}
+.ams-plug-card .copy { padding: 14px 16px 16px; }
+.ams-plug-card h4 {
+  margin: 0 0 4px;
+  font-family: var(--font-head, Outfit, sans-serif);
+  font-size: 1.05rem;
+}
+.ams-plug-card p { margin: 0; font-size: .85rem; color: var(--muted, #5c5e62); }
+
+.ams-plug-sticky {
+  position: fixed;
+  left: 12px;
+  right: 88px;
+  bottom: max(12px, env(safe-area-inset-bottom, 0px));
+  z-index: 40;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  pointer-events: none;
+}
+.ams-plug-sticky a {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  border-radius: 4px;
+  font-family: var(--font-head, Outfit, sans-serif);
+  font-size: .9rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(23, 26, 32, .12);
+}
+.ams-plug-sticky .is-text { background: var(--cta, #171a20); color: var(--cta-text, #ffffff); }
+.ams-plug-sticky .is-call {
+  background: var(--bg, #ffffff);
+  border: 1px solid var(--cta, #171a20);
+  color: var(--cta, #171a20);
+}
+
+body:has(#ams-plug-tesla) .mobile-cta-bar { display: none !important; }
+body:has(#ams-plug-tesla) { padding-bottom: 72px; }
+
+@media (min-width: 700px) {
+  .ams-plug-proof { grid-template-columns: repeat(5, 1fr); }
+  .ams-plug-actions { grid-template-columns: 1fr 1fr; max-width: 36rem; }
+  .ams-plug-tabs--models { grid-template-columns: repeat(3, 1fr); }
+  .ams-plug-tabs--film { grid-template-columns: 1fr 1fr; max-width: 28rem; }
+  .ams-plug-cards { grid-template-columns: 1fr 1fr 1fr; }
+}
+@media (min-width: 1024px) {
+  .ams-plug-tabs--models { grid-template-columns: repeat(6, 1fr); }
+  .ams-plug-sticky { display: none; }
+  body:has(#ams-plug-tesla) { padding-bottom: 0; }
+}

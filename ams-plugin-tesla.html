@@ -1,0 +1,148 @@
+<div class="ams-plug" id="ams-plug-tesla" data-ams-plugin="tesla-v1">
+  <div class="ams-plug-proof">
+    <div><span>Google</span><strong>4.8 from 654</strong></div>
+    <div><span>Yelp</span><strong>4.7 from 777</strong></div>
+    <div><span>Since</span><strong>2003</strong></div>
+    <div><span>Bay</span><strong>Carson</strong></div>
+    <div><span>Walk-in</span><strong>Mon–Sat 9:30–6</strong></div>
+  </div>
+
+  <section class="ams-plug-quote">
+    <div class="container">
+      <span class="eyebrow">Carson bay · ask for Nick</span>
+      <h2>Text the Tesla. <em>Nick quotes the glass.</em></h2>
+      <p class="lead">Tesla only. Year, model, film. Tickets sit at the bottom. Shade preview is next.</p>
+
+      <div class="ams-plug-year">
+        <input name="year" inputmode="numeric" autocomplete="off" placeholder="Year" aria-label="Year">
+      </div>
+
+      <p class="chip-label">Model</p>
+      <div class="ams-plug-tabs ams-plug-tabs--models" data-models>
+        <button type="button" data-model="Model 3">Model 3</button>
+        <button type="button" data-model="Model Y">Model Y</button>
+        <button type="button" data-model="Model Y L">Model Y L</button>
+        <button type="button" data-model="Model S">Model S</button>
+        <button type="button" data-model="Model X">Model X</button>
+        <button type="button" data-model="Cybertruck">Cybertruck</button>
+      </div>
+
+      <p class="chip-label">Film</p>
+      <div class="ams-plug-tabs ams-plug-tabs--film" data-films>
+        <button type="button" data-film="Solar Ceramic">Solar Ceramic</button>
+        <button type="button" data-film="3M IR Ceramic">3M IR Ceramic</button>
+      </div>
+
+      <div class="ams-plug-actions">
+        <a class="is-text" data-sms href="sms:+12134291092?body=Tesla%20tint%20quote.%20Ask%20for%20Nick.%20From%20Tesla%20Tint%20LA.">Text us a quote</a>
+        <a class="is-call" href="tel:+13105138800">Call (310) 513-8800</a>
+      </div>
+      <p class="fine">
+        Prefer email?
+        <a href="mailto:audiomotorsports@gmail.com?subject=Tesla%20tint%20quote">audiomotorsports@gmail.com</a>
+        · <a href="#tesla-sim">Play the shade preview</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="ams-plug-jobs">
+    <div class="container">
+      <span class="eyebrow">Tesla only</span>
+      <h3>Pick the car. Then play the shade.</h3>
+      <div class="ams-plug-cards">
+        <button type="button" class="ams-plug-card" data-card="Model 3">
+          <img src="/assets/sim/img/model-3.png" width="800" height="450" alt="Tesla Model 3" loading="lazy">
+          <div class="copy"><h4>Model 3</h4><p>Tesla glass. Same bay.</p></div>
+        </button>
+        <button type="button" class="ams-plug-card" data-card="Model Y">
+          <img src="/assets/sim/img/model-y.png" width="800" height="450" alt="Tesla Model Y" loading="lazy">
+          <div class="copy"><h4>Model Y</h4><p>Tesla glass. Same bay.</p></div>
+        </button>
+        <button type="button" class="ams-plug-card" data-card="Model Y L">
+          <img src="/assets/sim/img/model-yl.png" width="800" height="450" alt="Tesla Model Y L" loading="lazy">
+          <div class="copy"><h4>Model Y L</h4><p>Tesla glass. Same bay.</p></div>
+        </button>
+        <button type="button" class="ams-plug-card" data-card="Model S">
+          <img src="/assets/sim/img/model-s.png" width="800" height="450" alt="Tesla Model S" loading="lazy">
+          <div class="copy"><h4>Model S</h4><p>Tesla glass. Same bay.</p></div>
+        </button>
+        <button type="button" class="ams-plug-card" data-card="Model X">
+          <img src="/assets/sim/img/model-x.png" width="800" height="450" alt="Tesla Model X" loading="lazy">
+          <div class="copy"><h4>Model X</h4><p>Tesla glass. Same bay.</p></div>
+        </button>
+        <button type="button" class="ams-plug-card" data-card="Cybertruck">
+          <img src="/assets/sim/img/cybertruck.png" width="800" height="450" alt="Tesla Cybertruck" loading="lazy">
+          <div class="copy"><h4>Cybertruck</h4><p>Tesla glass. Same bay.</p></div>
+        </button>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="ams-plug-sticky" aria-label="Text or call">
+  <a class="is-text" data-sms-sticky href="sms:+12134291092?body=Tesla%20tint%20quote.%20Ask%20for%20Nick.%20From%20Tesla%20Tint%20LA.">Text us</a>
+  <a class="is-call" href="tel:+13105138800">Call</a>
+</div>
+
+<script>
+(function () {
+  var root = document.getElementById("ams-plug-tesla");
+  if (!root) return;
+  var model = "";
+  var film = "";
+  function smsHref(body) {
+    var msg = encodeURIComponent(body);
+    return /iPhone|iPad|iPod/i.test(navigator.userAgent)
+      ? "sms:+12134291092&body=" + msg
+      : "sms:+12134291092?body=" + msg;
+  }
+  function body() {
+    var y = ((root.querySelector("[name=year]") || {}).value || "").trim();
+    var parts = ["Tesla tint quote"];
+    if (y) parts.push(y);
+    if (model) parts.push(model);
+    if (film) parts.push(film);
+    parts.push("Ask for Nick. From Tesla Tint LA.");
+    return parts.join(" — ");
+  }
+  function paint() {
+    root.querySelectorAll("[data-model]").forEach(function (b) {
+      b.classList.toggle("is-on", b.getAttribute("data-model") === model);
+    });
+    root.querySelectorAll("[data-film]").forEach(function (b) {
+      b.classList.toggle("is-on", b.getAttribute("data-film") === film);
+    });
+    root.querySelectorAll("[data-card]").forEach(function (c) {
+      c.classList.toggle("is-on", c.getAttribute("data-card") === model);
+    });
+  }
+  function bind(el) {
+    if (!el) return;
+    el.addEventListener("click", function () {
+      el.href = smsHref(body());
+    });
+  }
+  root.querySelectorAll("[data-model]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var next = btn.getAttribute("data-model");
+      model = model === next ? "" : next;
+      paint();
+    });
+  });
+  root.querySelectorAll("[data-film]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var next = btn.getAttribute("data-film");
+      film = film === next ? "" : next;
+      paint();
+    });
+  });
+  root.querySelectorAll("[data-card]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      model = btn.getAttribute("data-card") || "";
+      paint();
+    });
+  });
+  bind(root.querySelector("[data-sms]"));
+  bind(document.querySelector("[data-sms-sticky]"));
+})();
+</script>
